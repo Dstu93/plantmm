@@ -1,0 +1,15 @@
+
+title = Countries
+
+@start
+
+Europe -- England
+Europe -- France
+Europe -- Spain
+
+England -- London
+England -- Oxford
+
+France -- Paris
+
+@end
