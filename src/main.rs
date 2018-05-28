@@ -18,17 +18,16 @@ fn main() {
     assert!(content.is_ascii());
     assert!(!content.is_empty());
     println!("Content String: {}\n\n", &*content);
-    //let result = mm_body(&*content);
     let result = mm_body(&*content);
+    //let result = start(&*content);
     println!("{:#?}",result);
 }
 
 // parser functions
-named!(start<&str,&str> , tag_s!("@start"));
+named!(start<&str,&str> , take_until!("@start"));
 named!(mm_body(&str) -> &str,
-take_until!("@start") ~
     delimited!(
-        tag_s!("@start"),
+        take_until_and_consume!("@start"),
         take_until!("@end"),
         tag_s!("@end")
         ));
